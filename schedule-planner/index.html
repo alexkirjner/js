@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Планировщик расписания</title>
+    <title>Schedule Planner</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <h1>📅 Планировщик расписания</h1>
-            <p class="subtitle">Управляйте своим расписанием эффективно</p>
+            <h1>📅 Schedule Planner</h1>
+            <p class="subtitle">Manage your schedule efficiently</p>
         </header>
 
         <main class="main-content">
-            <!-- Форма добавления события -->
+            <!-- Form for adding event -->
             <section class="form-section">
-                <h2>Добавить новое событие</h2>
+                <h2>Add New Event</h2>
                 <form id="eventForm" class="event-form">
                     <div class="form-group">
-                        <label for="eventTitle">Название события:</label>
+                        <label for="eventTitle">Event Title:</label>
                         <input 
                             type="text" 
                             id="eventTitle" 
-                            placeholder="Введите название события"
+                            placeholder="Enter event title"
                             required
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="eventDate">Дата:</label>
+                        <label for="eventDate">Date:</label>
                         <input 
                             type="date" 
                             id="eventDate"
@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="eventTime">Время:</label>
+                        <label for="eventTime">Time:</label>
                         <input 
                             type="time" 
                             id="eventTime"
@@ -47,99 +47,99 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="eventCategory">Категория:</label>
+                        <label for="eventCategory">Category:</label>
                         <select id="eventCategory" required>
-                            <option value="">Выберите категорию</option>
-                            <option value="work">Работа</option>
-                            <option value="meeting">Встреча</option>
-                            <option value="personal">Личное</option>
-                            <option value="health">Здоровье</option>
-                            <option value="education">Образование</option>
-                            <option value="other">Прочее</option>
+                            <option value="">Select category</option>
+                            <option value="work">Work</option>
+                            <option value="meeting">Meeting</option>
+                            <option value="personal">Personal</option>
+                            <option value="health">Health</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="eventDescription">Описание:</label>
+                        <label for="eventDescription">Description:</label>
                         <textarea 
                             id="eventDescription" 
-                            placeholder="Добавьте описание события (опционально)"
+                            placeholder="Add event description (optional)"
                             rows="3"
                         ></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Добавить событие</button>
+                    <button type="submit" class="btn btn-primary">Add Event</button>
                 </form>
                 <div id="formError" class="error-message"></div>
             </section>
 
-            <!-- Раздел фильтрации и сортировки -->
+            <!-- Filters and sorting section -->
             <section class="filter-section">
-                <h2>Фильтры и сортировка</h2>
+                <h2>Filters & Sorting</h2>
                 <div class="filters">
                     <div class="filter-group">
-                        <label for="filterCategory">Фильтр по категории:</label>
+                        <label for="filterCategory">Filter by Category:</label>
                         <select id="filterCategory">
-                            <option value="">Все категории</option>
-                            <option value="work">Работа</option>
-                            <option value="meeting">Встреча</option>
-                            <option value="personal">Личное</option>
-                            <option value="health">Здоровье</option>
-                            <option value="education">Образование</option>
-                            <option value="other">Прочее</option>
+                            <option value="">All Categories</option>
+                            <option value="work">Work</option>
+                            <option value="meeting">Meeting</option>
+                            <option value="personal">Personal</option>
+                            <option value="health">Health</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
                         </select>
                     </div>
 
                     <div class="filter-group">
-                        <label for="searchInput">Поиск:</label>
+                        <label for="searchInput">Search:</label>
                         <input 
                             type="text" 
                             id="searchInput" 
-                            placeholder="Поиск по названию..."
+                            placeholder="Search by title..."
                         >
                     </div>
 
                     <div class="filter-group">
-                        <label for="sortBy">Сортировка:</label>
+                        <label for="sortBy">Sort by:</label>
                         <select id="sortBy">
-                            <option value="date-asc">По дате (возрастание)</option>
-                            <option value="date-desc">По дате (убывание)</option>
-                            <option value="time-asc">По времени (возрастание)</option>
-                            <option value="title">По названию (А-Я)</option>
+                            <option value="date-asc">Date (Ascending)</option>
+                            <option value="date-desc">Date (Descending)</option>
+                            <option value="time-asc">Time (Ascending)</option>
+                            <option value="title">Title (A-Z)</option>
                         </select>
                     </div>
 
-                    <button id="clearFilters" class="btn btn-secondary">Сбросить фильтры</button>
+                    <button id="clearFilters" class="btn btn-secondary">Clear Filters</button>
                 </div>
             </section>
 
-            <!-- Раздел отображения событий -->
+            <!-- Events display section -->
             <section class="events-section">
                 <div class="section-header">
-                    <h2>События</h2>
-                    <span id="eventCount" class="event-count">0 событий</span>
+                    <h2>Events</h2>
+                    <span id="eventCount" class="event-count">0 events</span>
                 </div>
 
                 <div id="eventsList" class="events-list">
-                    <!-- События будут добавлены здесь динамически -->
+                    <!-- Events will be added here dynamically -->
                 </div>
 
                 <div id="emptyState" class="empty-state">
-                    <p>📭 На данный момент нет событий</p>
+                    <p>📭 No events at the moment</p>
                 </div>
             </section>
         </main>
 
-        <!-- Модальное окно для редактирования события -->
+        <!-- Modal window for editing event -->
         <div id="editModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Редактировать событие</h3>
+                    <h3>Edit Event</h3>
                     <button class="modal-close">&times;</button>
                 </div>
                 <form id="editForm" class="event-form">
                     <div class="form-group">
-                        <label for="editTitle">Название события:</label>
+                        <label for="editTitle">Event Title:</label>
                         <input 
                             type="text" 
                             id="editTitle" 
@@ -148,7 +148,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="editDate">Дата:</label>
+                        <label for="editDate">Date:</label>
                         <input 
                             type="date" 
                             id="editDate"
@@ -157,7 +157,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="editTime">Время:</label>
+                        <label for="editTime">Time:</label>
                         <input 
                             type="time" 
                             id="editTime"
@@ -166,19 +166,19 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="editCategory">Категория:</label>
+                        <label for="editCategory">Category:</label>
                         <select id="editCategory" required>
-                            <option value="work">Работа</option>
-                            <option value="meeting">Встреча</option>
-                            <option value="personal">Личное</option>
-                            <option value="health">Здоровье</option>
-                            <option value="education">Образование</option>
-                            <option value="other">Прочее</option>
+                            <option value="work">Work</option>
+                            <option value="meeting">Meeting</option>
+                            <option value="personal">Personal</option>
+                            <option value="health">Health</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="editDescription">Описание:</label>
+                        <label for="editDescription">Description:</label>
                         <textarea 
                             id="editDescription" 
                             rows="3"
@@ -186,8 +186,8 @@
                     </div>
 
                     <div class="modal-buttons">
-                        <button type="submit" class="btn btn-primary">Сохранить</button>
-                        <button type="button" class="btn btn-secondary" id="cancelEdit">Отмена</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" id="cancelEdit">Cancel</button>
                     </div>
                 </form>
             </div>
