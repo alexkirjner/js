@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Manager - Lab Work #5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Personal Finance Manager</h1>
+            <p class="subtitle">Laboratory Work #5: DOM Tree and Events in JavaScript</p>
+        </header>
+
+        <main>
+            <!-- Form Section -->
+            <section class="form-section">
+                <h2>Add New Transaction</h2>
+                <form id="transactionForm" class="transaction-form">
+                    <div class="form-group">
+                        <label for="date">Date and Time:</label>
+                        <input type="datetime-local" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="Salary">Salary</option>
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input type="number" id="amount" name="amount" step="0.01" placeholder="Enter amount" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" rows="3" placeholder="Enter transaction description" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Add Transaction</button>
+                </form>
+                <div id="formError" class="error-message"></div>
+            </section>
+
+            <!-- Summary Section -->
+            <section class="summary-section">
+                <div class="summary-card">
+                    <h3>Total Balance</h3>
+                    <p id="totalBalance" class="total-amount">$0.00</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Total Income</h3>
+                    <p id="totalIncome" class="income-amount">+$0.00</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Total Expenses</h3>
+                    <p id="totalExpenses" class="expense-amount">-$0.00</p>
+                </div>
+            </section>
+
+            <!-- Transactions Table Section -->
+            <section class="table-section">
+                <h2>Transaction History</h2>
+                <div class="table-wrapper">
+                    <table id="transactionsTable" class="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Date and Time</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsBody">
+                            <!-- Transactions will be added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Transaction Details Section -->
+            <section class="details-section">
+                <h2>Transaction Details</h2>
+                <div id="transactionDetails" class="details-container">
+                    <p class="placeholder-text">Select a transaction to view full details</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Personal Finance Manager | Laboratory Work #5</p>
+        </footer>
+    </div>
+
+    <script type="module" src="src/index.js"></script>
+</body>
+</html>
